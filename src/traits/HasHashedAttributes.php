@@ -40,7 +40,7 @@ trait HasHashedAttributes
      *
      * @return string
      */
-    public function hashAttribute($value, string $salt_modifiers): string
+    public function hashAttribute($value, string $salt_modifiers = ""): string
     {
         return \DatabaseHashing::create($value, $salt_modifiers);
     }
