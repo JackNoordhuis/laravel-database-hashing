@@ -15,9 +15,6 @@
     "php": ">=7.1.0",
     "laravel/framework": "5.5.*|5.6.*"
   },
-  "require-dev": {
-    "barryvdh/laravel-ide-helper": "^2.4"
-  },
   "autoload": {
     "psr-4": {
       "jacknoordhuis\\database\\hashing\\": "src"
@@ -30,7 +27,7 @@
         "jacknoordhuis\\database\\hashing\\HashingServiceProvider"
       ],
       "aliases": {
-        "DatabaseHashing": "jacknoordhuis\\database\\hasing\\HashingServiceProvider"
+        "DatabaseHashing": "jacknoordhuis\\database\\hashing\\HashingServiceProvider"
       }
     }
   }
