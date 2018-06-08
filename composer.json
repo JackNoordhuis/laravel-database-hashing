@@ -27,7 +27,7 @@
         "jacknoordhuis\\database\\hashing\\HashingServiceProvider"
       ],
       "aliases": {
-        "DatabaseHashing": "jacknoordhuis\\database\\hashing\\HashingServiceProvider"
+        "DatabaseHashing": "jacknoordhuis\\database\\hashing\\HashingFacade"
       }
     }
   }
