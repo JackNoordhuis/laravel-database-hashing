@@ -27,10 +27,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "jacknoordhuis\\database\\hashing\\HasingServiceProvider"
+        "jacknoordhuis\\database\\hashing\\HashingServiceProvider"
       ],
       "aliases": {
-        "DatabaseHashing": "jacknoordhuis\\database\\hasing\\HasingServiceProvider"
+        "DatabaseHashing": "jacknoordhuis\\database\\hasing\\HashingServiceProvider"
       }
     }
   }

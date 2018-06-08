@@ -118,4 +118,4 @@ No! The hashing process is irreversible, meaning it should only be used for crea
 
 ### Should I hash numeric auto-incrementing identifiers?
 
-Probably not. If all data stored in your database is encrypted or hashed then the numeric identifier is effectively anonymous (it's really pseudonymous) so there is no way the associate any human readable data with the identifier. There are are other reasons for not hashing or encrypting the primary key and you can read about those [here](https://stackoverflow.com/a/34423898).
+Probably not. If all data stored in your database is encrypted or hashed then the numeric identifier is effectively anonymous (it's really pseudonymous) so there is no way to associate any human readable data with the identifier. There are other reasons for not hashing or encrypting the primary key in your database, and you can read about those [here](https://stackoverflow.com/a/34423898).

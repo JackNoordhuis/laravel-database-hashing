@@ -41,7 +41,7 @@ class HashingFacade extends Facade
     }
 
     /**
-     * Get the singleton of EncryptionHelper.
+     * Get the singleton of HashingHelper.
      *
      * @return HashingHelper
      */
@@ -66,4 +66,5 @@ class HashingFacade extends Facade
         throw_if(! method_exists($instance, $method), RuntimeException::class, 'Method "'.$method.'" does not exist on "'.get_class($instance).'".');
         return $instance->$method(...$args);
     }
+
 }
