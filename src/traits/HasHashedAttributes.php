@@ -60,7 +60,7 @@ trait HasHashedAttributes
     protected function attemptAttributeHash($key): self
     {
         if($this->shouldHash($key)) {
-            $this->hashAttribute($this->attributes[$key]);
+            $this->hashAttribute($key);
         }
 
         return $this;
