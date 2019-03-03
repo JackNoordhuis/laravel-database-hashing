@@ -96,7 +96,7 @@ class HashingHelper
      */
     private function setUpSalt(string $salt): void
     {
-        throw_if(strlen($salt === 0 or $salt === null), RuntimeException::class, 'No hashing salt has been specified.');
+        throw_if(strlen($salt) === 0 or $salt === null, RuntimeException::class, 'No hashing salt has been specified.');
 
         // If the salt starts with "base64:", we will need to decode it before using it
         // to hash anything. A salt may be base64 encoded for presentation and we want
