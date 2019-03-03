@@ -52,7 +52,7 @@ class HashingServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/database-hashing.php', 'database-hashing');
 
-        $this->app->singleton(HashingFacade::getFacadeAccessor(), function ($app) {
+        $this->app->singleton(HashingFacade::getFacadeAccessor(), function () {
             return new HashingHelper((bool) config('database-hashing.enabled', false), (string) config('database-hashing.salt', ''));
         });
     }
