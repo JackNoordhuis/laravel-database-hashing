@@ -18,6 +18,7 @@ declare(strict_types=1);
 
 namespace jacknoordhuis\tests;
 
+use function class_exists;
 use jacknoordhuis\database\hashing\HashingFacade;
 use jacknoordhuis\database\hashing\HashingServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
@@ -42,15 +43,23 @@ abstract class TestCase extends BaseTestCase
 
     protected function getPackageProviders($app) : array
     {
-        return [
-            HashingServiceProvider::class,
-        ];
+        if(class_exists('\Orchestra\Database\ConsoleServiceProvider')) {
+            return [
+                HashingServiceProvider::class,
+                \Orchestra\Database\ConsoleServiceProvider::class,
+            ];
+        } else {
+            return [
+                HashingServiceProvider::class,
+            ];
+        }
     }
 
     protected function getPackageAliases($app) : array
     {
         return [
             'DatabaseHashing' => HashingFacade::class,
+
         ];
     }
 }
