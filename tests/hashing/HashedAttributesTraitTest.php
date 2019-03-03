@@ -27,11 +27,6 @@ class HashedAttributesTraitTest extends TestCase
 {
     use RefreshDatabase;
 
-    protected function getEnvironmentSetUp($app): void
-    {
-        parent::getEnvironmentSetUp($app);
-    }
-
     /**
      * Make sure models with hashed attributes are hashed.
      */
