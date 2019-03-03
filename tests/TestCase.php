@@ -27,6 +27,13 @@ abstract class TestCase extends BaseTestCase
     /** @var string */
     protected $salt;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->loadMigrationsFrom(__DIR__ . '/migrations');
+    }
+
     protected function getEnvironmentSetUp($app) : void
     {
         $app['config']->set('database-hashing.enabled', true);
