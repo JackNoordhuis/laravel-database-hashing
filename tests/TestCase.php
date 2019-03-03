@@ -26,8 +26,8 @@ abstract class TestCase extends BaseTestCase
 {
     protected function getEnvironmentSetUp($app) : void
     {
-        $app['config']->set('app.key', str_random(32));
-        $app['config']->set('database-encryption.enabled', true);
+        $app['config']->set('database-hashing.enabled', true);
+        $app['config']->set('database-hashing.salt', str_random(32));
     }
 
     protected function getPackageProviders($app) : array
