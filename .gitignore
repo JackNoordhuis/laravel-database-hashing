@@ -13,3 +13,4 @@ yarn-error.log
 .env
 .ide_helper.php
 .DS_Store
+.phpunit.result.cache
