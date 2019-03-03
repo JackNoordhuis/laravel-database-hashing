@@ -38,7 +38,7 @@ class HashingHelper
     private $salt = null;
 
     /**
-     * @param bool $enabled
+     * @param bool   $enabled
      * @param string $app_salt
      */
     public function __construct(bool $enabled, string $app_salt)
@@ -73,7 +73,7 @@ class HashingHelper
     /**
      * Generate a hash from the provided data and salt modifier.
      *
-     * @param string $value Data to be hashed.
+     * @param string $value         Data to be hashed.
      * @param string $salt_modifier A modifier to provide an even more secure hash (eg. a users password).
      *
      *
@@ -86,7 +86,7 @@ class HashingHelper
      */
     public function create(string $value, string $salt_modifier = ""): string
     {
-        return bin2hex(hash("sha512", $value . $this->salt . $salt_modifier, true) ^ hash("whirlpool", $salt_modifier . $this->salt . $value, true));
+        return bin2hex(hash('sha512', $value . $this->salt . $salt_modifier, true) ^ hash('whirlpool', $salt_modifier . $this->salt . $value, true));
     }
 
     /**
@@ -101,7 +101,7 @@ class HashingHelper
         // If the salt starts with "base64:", we will need to decode it before using it
         // to hash anything. A salt may be base64 encoded for presentation and we want
         // it converted back into raw bytes before using it in our hashing algo.
-        if (Str::startsWith($salt, "base64:")) {
+        if (Str::startsWith($salt, 'base64:')) {
             $salt = base64_decode(substr($salt, 7));
         }
 

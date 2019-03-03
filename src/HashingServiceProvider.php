@@ -40,7 +40,7 @@ class HashingServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->publishes([__DIR__ . "/../config/database-hashing.php" => config_path("database-hashing.php")]);
+        $this->publishes([__DIR__ . '/../config/database-hashing.php' => config_path('database-hashing.php')]);
     }
 
     /**
@@ -50,10 +50,10 @@ class HashingServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__ . "/../config/database-hashing.php", "database-hashing");
+        $this->mergeConfigFrom(__DIR__ . '/../config/database-hashing.php', 'database-hashing');
 
-        $this->app->singleton(HashingFacade::getFacadeAccessor(), function($app) {
-            return new HashingHelper((bool) config('database-hashing.enabled', false), (string) config('database-hashing.salt', ""));
+        $this->app->singleton(HashingFacade::getFacadeAccessor(), function ($app) {
+            return new HashingHelper((bool) config('database-hashing.enabled', false), (string) config('database-hashing.salt', ''));
         });
     }
 }

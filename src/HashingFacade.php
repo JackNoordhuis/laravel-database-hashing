@@ -28,7 +28,6 @@ use RuntimeException;
  */
 class HashingFacade extends Facade
 {
-
     /**
      * Get the registered name of the component.
      *
@@ -36,7 +35,7 @@ class HashingFacade extends Facade
      */
     public static function getFacadeAccessor()
     {
-        return "DatabaseHashing";
+        return 'DatabaseHashing';
     }
 
     /**
@@ -62,8 +61,8 @@ class HashingFacade extends Facade
     {
         $instance = static::getInstance();
         throw_if(! $instance, RuntimeException::class, 'A facade root has not been set.');
-        throw_if(! method_exists($instance, $method), RuntimeException::class, 'Method "'.$method.'" does not exist on "'.get_class($instance).'".');
+        throw_if(! method_exists($instance, $method), RuntimeException::class, 'Method "' . $method . '" does not exist on "' . get_class($instance) . '".');
+
         return $instance->$method(...$args);
     }
-
 }

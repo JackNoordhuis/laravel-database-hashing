@@ -42,8 +42,9 @@ trait HasHashedAttributes
      */
     public function hashAttribute(string $attribute, string $salt_modifiers = ""): bool
     {
-        if(isset($this->attributes[$attribute])) {
+        if (isset($this->attributes[$attribute])) {
             $this->attributes[$attribute] = \DatabaseHashing::create($this->attributes[$attribute], $salt_modifiers);
+
             return true;
         }
 
@@ -59,7 +60,7 @@ trait HasHashedAttributes
      */
     protected function attemptAttributeHash($key): self
     {
-        if($this->shouldHash($key)) {
+        if ($this->shouldHash($key)) {
             $this->hashAttribute($key);
         }
 
@@ -75,7 +76,7 @@ trait HasHashedAttributes
      * Set a given attribute on the model.
      *
      * @param string $key
-     * @param mixed$value
+     * @param mixed  $value
      */
     public function setAttribute($key, $value)
     {
@@ -83,5 +84,4 @@ trait HasHashedAttributes
 
         $this->attemptAttributeHash($key);
     }
-
 }
