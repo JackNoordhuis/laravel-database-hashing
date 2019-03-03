@@ -24,10 +24,13 @@ use Orchestra\Testbench\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
+    /** @var string */
+    protected $salt;
+
     protected function getEnvironmentSetUp($app) : void
     {
         $app['config']->set('database-hashing.enabled', true);
-        $app['config']->set('database-hashing.salt', str_random(32));
+        $app['config']->set('database-hashing.salt', $this->salt = str_random(32));
     }
 
     protected function getPackageProviders($app) : array
