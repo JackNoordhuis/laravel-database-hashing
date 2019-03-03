@@ -23,13 +23,13 @@ be configured to automatically apply to attributes out of the box.
 
 Via command line:
 ```bash
-$ composer require jacknoordhuis/laravel-database-hashing 1.0.*
+$ composer require jacknoordhuis/laravel-database-hashing ^2.0
 ```
 Or add the package to your `composer.json`:
 ```json
 {
     "require": {
-        "jacknoordhuis/laravel-database-hashing": "1.0.*"
+        "jacknoordhuis/laravel-database-hashing": "^2.0"
     }
 }
 ```
