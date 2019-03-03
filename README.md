@@ -2,6 +2,8 @@ Laravel 5.5+ Database Hashing package
 ===============
 _A package for automatically hashing Eloquent attributes!_
 
+[![Build Status](https://travis-ci.org/JackNoordhuis/laravel-database-hashing.svg?branch=master)](https://travis-ci.org/JackNoordhuis/laravel-database-hashing)
+
 The purpose of this project is to create a set-it-and-forget-it package that can be installed without much effort to hash Eloquent model attributes stored in your database tables.
 
 When enabled, it automagically begins hashing data as it is stored in the model attributes so that you can still perform lookups for data in your database.
