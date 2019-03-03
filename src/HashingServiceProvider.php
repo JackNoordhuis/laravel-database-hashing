@@ -22,7 +22,6 @@ use Illuminate\Support\ServiceProvider;
 
 class HashingServiceProvider extends ServiceProvider
 {
-
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -58,8 +57,7 @@ class HashingServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . "/../config/database-hashing.php", "database-hashing");
 
         $this->app->singleton(HashingFacade::getFacadeAccessor(), function($app) {
-            return new HashingHelper();
+            return new HashingHelper((bool) config('database-hashing.enabled', false), (string) config('database-hashing.salt', ""));
         });
     }
-
 }
