@@ -31,7 +31,12 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $this->loadMigrationsFrom(__DIR__ . '/migrations');
+        // call migrations specific to our tests, e.g. to seed the db
+        // the path option should be an absolute path.
+        $this->loadMigrationsFrom([
+            '--database' => 'testing',
+            '--path' => realpath(__DIR__.'/migrations'),
+        ]);
     }
 
     protected function getEnvironmentSetUp($app) : void
