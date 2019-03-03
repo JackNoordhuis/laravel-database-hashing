@@ -18,6 +18,8 @@ declare(strict_types=1);
 
 namespace jacknoordhuis\database\hashing\traits;
 
+use DatabaseHashing;
+
 trait HasHashedAttributes
 {
     /**
@@ -29,7 +31,7 @@ trait HasHashedAttributes
      */
     protected function shouldHash($key): bool
     {
-        return in_array($key, ((\DatabaseHashing::enabled() and isset($this->hashing)) ? $this->hashing : []));
+        return in_array($key, ((DatabaseHashing::enabled() and isset($this->hashing)) ? $this->hashing : []));
     }
 
     /**
@@ -43,7 +45,7 @@ trait HasHashedAttributes
     public function hashAttribute(string $attribute, string $salt_modifiers = ""): bool
     {
         if (isset($this->attributes[$attribute])) {
-            $this->attributes[$attribute] = \DatabaseHashing::create($this->attributes[$attribute], $salt_modifiers);
+            $this->attributes[$attribute] = DatabaseHashing::create($this->attributes[$attribute], $salt_modifiers);
 
             return true;
         }
