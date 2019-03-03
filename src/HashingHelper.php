@@ -90,16 +90,6 @@ class HashingHelper
     }
 
     /**
-     * Get the singleton of this class.
-     *
-     * @return HashingHelper
-     */
-    public static function getInstance(): self
-    {
-        return HashingFacade::getInstance();
-    }
-
-    /**
      * Check the application salt is valid and decode from base64 if needed.
      *
      * @param string $salt
