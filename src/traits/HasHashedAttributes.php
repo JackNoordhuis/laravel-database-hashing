@@ -33,16 +33,21 @@ trait HasHashedAttributes
     }
 
     /**
-     * Returns the hashed value of an attribute.
+     * Set the value of an attribute to a hash of itself.
      *
-     * @param mixed $value
+     * @param string $attribute
      * @param string $salt_modifiers
      *
-     * @return string
+     * @return bool
      */
-    public function hashAttribute($value, string $salt_modifiers = ""): string
+    public function hashAttribute(string $attribute, string $salt_modifiers = ""): bool
     {
-        return \DatabaseHashing::create($value, $salt_modifiers);
+        if(isset($this->attributes[$attribute])) {
+            $this->attributes[$attribute] = \DatabaseHashing::create($this->attributes[$attribute], $salt_modifiers);
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -55,7 +60,7 @@ trait HasHashedAttributes
     protected function attemptAttributeHash($key): self
     {
         if($this->shouldHash($key)) {
-            $this->attributes[$key] = $this->hashAttribute($this->attributes[$key]);
+            $this->hashAttribute($this->attributes[$key]);
         }
 
         return $this;
