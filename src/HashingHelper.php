@@ -33,9 +33,9 @@ class HashingHelper
     /**
      * Salt used for generating hashes.
      *
-     * @var string
+     * @var string|null
      */
-    private $salt;
+    private $salt = null;
 
     /**
      * @param bool $enabled
@@ -63,9 +63,9 @@ class HashingHelper
     /**
      * Retrieve the salt used for hashing.
      *
-     * @return string
+     * @return string|null
      */
-    public function salt(): string
+    public function salt(): ?string
     {
         return $this->salt;
     }
