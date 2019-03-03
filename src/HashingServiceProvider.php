@@ -41,10 +41,6 @@ class HashingServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->publishes([__DIR__ . "/../config/database-hashing.php" => config_path("database-hashing.php")]);
-
-        if(!defined("LARAVEL_DATABASE_HASHING_VERSION")) {
-            define("LARAVEL_DATABASE_HASHING_VERSION", HashingHelper::VERSION);
-        }
     }
 
     /**

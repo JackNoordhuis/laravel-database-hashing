@@ -24,13 +24,6 @@ use RuntimeException;
 class HashingHelper
 {
     /**
-     * Internal version number.
-     *
-     * @var string
-     */
-    public const VERSION = "0.0.1";
-
-    /**
      * Specifies if hashing should be enabled.
      *
      * @var bool|null
@@ -55,20 +48,6 @@ class HashingHelper
         if ($enabled) {
             $this->setUpSalt($app_salt);
         }
-    }
-
-    /**
-     * Get the package version.
-     *
-     * @throws \Throwable
-     *
-     * @return string
-     */
-    public function version(): string
-    {
-        throw_if(! defined("LARAVEL_DATABASE_HASHING_VERSION"), RuntimeException::class, "The provider did not boot.");
-
-        return LARAVEL_DATABASE_HASHING_VERSION;
     }
 
     /**
