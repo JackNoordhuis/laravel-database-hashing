@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Facade;
 use RuntimeException;
 
 /**
- * @method static string version()
  * @method static bool enabled()
  * @method static string salt()
  * @method static string create(string $value, string $salt_modifier = "")
