@@ -47,4 +47,20 @@ class HashingFacadeTest extends TestCase
     {
         $this->assertEquals($this->salt, DatabaseHashing::salt());
     }
+
+    /**
+     * Make sure the facade creates the same hash from the same values by default.
+     */
+    public function test_facade_create(): void
+    {
+        $this->assertEquals(DatabaseHashing::create('an input'), DatabaseHashing::create('an input'));
+    }
+
+    /**
+     * Make sure the facade creates a different hash from different values by default.
+     */
+    public function test_facade_create_different(): void
+    {
+        $this->assertNotEquals(DatabaseHashing::create('an input'), DatabaseHashing::create('another input'));
+    }
 }
